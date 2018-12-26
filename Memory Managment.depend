@@ -1,5 +1,8 @@
 # depslib dependency file v1.0
-1545856921 source:/home/ahmedhammad97/Desktop/Memory Managment/main.cpp
+1545865367 source:/home/ahmedhammad97/Desktop/Memory Managment/main.cpp
 	<iostream>
 	<vector>
+	<unordered_map>
+	<algorithm>
+	<limits>
 
