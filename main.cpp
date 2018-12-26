@@ -18,7 +18,19 @@ bool isThere(vector<int>& pages, int target){
 }
 
 void firstInFirstOut(vector<int>& pages){
+int page, oldest=0, falts=0;
 
+    while(1){
+        cin>>page;
+        if(page==-1){return;}
+        if(isThere(pages, page)){continue;}
+        if(pages.size() == pages.capacity()){
+            pages[oldest] = page;
+            oldest++;
+            if(oldest == pages.size()){oldest=0;}
+        }
+        else{pages.push_back(page);}
+    }
 }
 
 void leastRecentlyUsed(vector<int>& pages){
