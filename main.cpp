@@ -6,6 +6,13 @@
 
 using namespace std;
 
+////////////////////////////////
+//                            //
+//   Coded by: Ahmed Hammad   //
+//     www.ahmedhammad.me     //
+//                            //
+////////////////////////////////
+
 void takeInputs(string &type, vector<int>& pages){
     int nums;
     cin>>nums;
@@ -74,7 +81,30 @@ void leastRecentlyUsed(vector<int>& pages){
 }
 
 void clock(vector<int>& pages){
+    int page, faults=0, index=0;
+    vector<bool> bit(pages.size());
+    fill(bit.begin(), bit.end(), false);
+    while(1){
 
+    for(auto& i : pages){cout<<i<<" ";}
+    cout<<"\n";
+
+        cin>>page;
+        if(page==-1){return;}
+        if(isThere(pages, page)){continue;}
+        if(pages.size() == pages.capacity()){
+            while(!bit[index]){
+                bit[index]=true; index++;
+                if(index==pages.size()){index=0;}
+            }
+            pages[index] = page;
+            bit[index] = false;
+            faults++;
+        }
+        else{
+        pages.push_back(page);
+        }
+    }
 }
 
 void pickPolicy(string &type, vector<int>& pages){
